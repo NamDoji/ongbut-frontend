@@ -138,3 +138,29 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* ── Hero animations ── */
+@keyframes float {
+  from { transform: translateY(0px); opacity: 0.6; }
+  to   { transform: translateY(-16px); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-fade-in {
+  animation: fadeIn 0.7s ease forwards;
+}
+.hero-fade-in-up {
+  animation: fadeInUp 0.7s ease forwards;
+  opacity: 0;
+}
+.hero-delay-1 { animation-delay: 0.1s; }
+.hero-delay-2 { animation-delay: 0.2s; }
+.hero-delay-3 { animation-delay: 0.3s; }
+.hero-delay-4 { animation-delay: 0.4s; }
+.hero-float   { animation: float 5s ease-in-out infinite alternate; }
