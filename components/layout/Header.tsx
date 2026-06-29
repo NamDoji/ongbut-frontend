@@ -9,12 +9,11 @@ import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { label: "Trang chủ", href: "/" },
+  { label: "🎓 Tuyển sinh", href: "/tuyen-sinh", highlight: true },
   { label: "Khóa học", href: "/khoa-hoc" },
-  { label: "Lớp học", href: "/danh-sach-lop-hoc" },
   { label: "Giáo viên", href: "/giao-vien" },
   { label: "Bảng vàng", href: "/bang-vang" },
   { label: "Tin tức", href: "/tin-tuc" },
-  { label: "Giới thiệu", href: "/gioi-thieu" },
   { label: "Liên hệ", href: "/lien-he" },
 ];
 
