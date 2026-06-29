@@ -6,8 +6,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLang } from "@/contexts/LanguageContext";
 
-const NAV_ITEMS = [
+const NAV_ITEMS_VI = [
   { label: "Trang chủ", href: "/" },
   { label: "🎓 Tuyển sinh", href: "/tuyen-sinh", highlight: true },
   { label: "Khóa học", href: "/khoa-hoc" },
@@ -17,10 +18,23 @@ const NAV_ITEMS = [
   { label: "Liên hệ", href: "/lien-he" },
 ];
 
+const NAV_ITEMS_EN = [
+  { label: "Home", href: "/" },
+  { label: "🎓 Enrollment", href: "/tuyen-sinh", highlight: true },
+  { label: "Courses", href: "/khoa-hoc" },
+  { label: "Teachers", href: "/giao-vien" },
+  { label: "Honor Roll", href: "/bang-vang" },
+  { label: "News", href: "/tin-tuc" },
+  { label: "Contact", href: "/lien-he" },
+];
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const { lang, toggle, t } = useLang();
+
+  const NAV_ITEMS = lang === "vi" ? NAV_ITEMS_VI : NAV_ITEMS_EN;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -69,13 +83,21 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA */}
+          {/* CTA + Language Toggle */}
           <div className="hidden lg:flex items-center gap-3">
+            {/* Language Toggle */}
+            <button
+              onClick={toggle}
+              className="text-xs font-bold border border-[#2B4FFF] text-[#2B4FFF] rounded px-2 py-1 hover:opacity-70 transition"
+              aria-label="Toggle language"
+            >
+              {lang === "vi" ? "🇺🇸 EN" : "🇻🇳 VI"}
+            </button>
             <Link
               href="/lien-he#consult"
               className="inline-flex items-center justify-center bg-[#2B4FFF] hover:bg-[#1A3ACC] text-white rounded-lg px-5 h-10 text-sm font-semibold transition-colors"
             >
-              Đăng ký tư vấn
+              {t("Đăng ký tư vấn", "Free Consultation")}
             </Link>
           </div>
 
@@ -109,13 +131,19 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="pt-2">
+            <div className="pt-2 flex items-center gap-3">
+              <button
+                onClick={toggle}
+                className="text-xs font-bold border border-[#2B4FFF] text-[#2B4FFF] rounded px-2 py-1 hover:opacity-70 transition"
+              >
+                {lang === "vi" ? "🇺🇸 EN" : "🇻🇳 VI"}
+              </button>
               <Link
                 href="/lien-he#consult"
                 onClick={() => setIsOpen(false)}
-                className="w-full inline-flex items-center justify-center bg-[#2B4FFF] hover:bg-[#1A3ACC] text-white rounded-lg h-10 text-sm font-semibold transition-colors"
+                className="flex-1 inline-flex items-center justify-center bg-[#2B4FFF] hover:bg-[#1A3ACC] text-white rounded-lg h-10 text-sm font-semibold transition-colors"
               >
-                Đăng ký tư vấn miễn phí
+                {t("Đăng ký tư vấn miễn phí", "Free Consultation")}
               </Link>
             </div>
           </div>

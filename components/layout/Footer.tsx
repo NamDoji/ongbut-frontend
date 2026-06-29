@@ -1,27 +1,40 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Trophy } from "lucide-react";
-
-const LINKS = {
-  courses: [
-    { label: "Toán tư duy", href: "/khoa-hoc" },
-    { label: "Ngữ văn", href: "/khoa-hoc" },
-    { label: "Tiếng Anh", href: "/khoa-hoc" },
-    { label: "Vật lý", href: "/khoa-hoc" },
-    { label: "Hóa học", href: "/khoa-hoc" },
-  ],
-  info: [
-    { label: "Giới thiệu", href: "/gioi-thieu" },
-    { label: "Giáo viên", href: "/giao-vien" },
-    { label: "Bảng vàng", href: "/bang-vang" },
-    { label: "Tin tức", href: "/tin-tuc" },
-    { label: "Liên hệ", href: "/lien-he" },
-  ],
-};
+import { Phone, Mail, MapPin, Trophy, MessageCircle } from "lucide-react";
+import { useLang } from "@/contexts/LanguageContext";
 
 export function Footer() {
+  const { lang, t } = useLang();
+
+  const QUICK_LINKS_VI = [
+    { label: "Tuyển sinh 2025", href: "/tuyen-sinh" },
+    { label: "Khóa học", href: "/khoa-hoc" },
+    { label: "Giáo viên", href: "/giao-vien" },
+    { label: "Bảng vàng", href: "/bang-vang" },
+    { label: "Liên hệ", href: "/lien-he" },
+  ];
+
+  const QUICK_LINKS_EN = [
+    { label: "2025 Enrollment", href: "/tuyen-sinh" },
+    { label: "Courses", href: "/khoa-hoc" },
+    { label: "Teachers", href: "/giao-vien" },
+    { label: "Honor Roll", href: "/bang-vang" },
+    { label: "Contact", href: "/lien-he" },
+  ];
+
+  const quickLinks = lang === "vi" ? QUICK_LINKS_VI : QUICK_LINKS_EN;
+
+  const ZALO_GROUPS = [
+    { label: t("Zalo nhóm 2K13 (Lớp 12)", "Zalo Group 2K13 (Grade 12)"), href: "https://zalo.me/g/example-2k13" },
+    { label: t("Zalo nhóm 2K14 (Lớp 11)", "Zalo Group 2K14 (Grade 11)"), href: "https://zalo.me/g/example-2k14" },
+    { label: t("Zalo nhóm 2K15 (Lớp 10)", "Zalo Group 2K15 (Grade 10)"), href: "https://zalo.me/g/example-2k15" },
+    { label: t("Zalo nhóm 2K16 (Lớp 9)", "Zalo Group 2K16 (Grade 9)"), href: "https://zalo.me/g/example-2k16" },
+  ];
+
   return (
-    <footer className="bg-[#2B4FFF] text-white">
+    <footer className="bg-[#0A2342] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
@@ -35,37 +48,59 @@ export function Footer() {
                 className="h-9 w-auto brightness-0 invert"
               />
             </div>
-            <p className="text-sm text-blue-100 leading-relaxed mb-4">
-              Nền tảng giáo dục AI cá nhân hóa — học đúng cách, đúng lúc, đúng
-              người.
+            <p className="text-sm text-blue-200 leading-relaxed mb-4">
+              {t(
+                "Nền tảng giáo dục AI cá nhân hóa — học đúng cách, đúng lúc, đúng người.",
+                "AI-personalized education platform — the right method, at the right time, for the right learner."
+              )}
             </p>
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-sm text-blue-100">
+              <a
+                href="tel:0904290583"
+                className="flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors"
+              >
                 <Phone className="w-4 h-4 text-[#F0C040]" />
-                <span>0913 999 888</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-blue-100">
+                <span>0904 290 583</span>
+              </a>
+              <a
+                href="https://zalo.me/0904290583"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-[#F0C040]" />
+                <span>Zalo: 0904 290 583</span>
+              </a>
+              <a
+                href="mailto:cuong@ongbut.vn"
+                className="flex items-center gap-2 text-sm text-blue-200 hover:text-white transition-colors"
+              >
                 <Mail className="w-4 h-4 text-[#F0C040]" />
-                <span>info@ongbut.edu.vn</span>
-              </div>
-              <div className="flex items-start gap-2 text-sm text-blue-100">
-                <MapPin className="w-4 h-4 text-[#F0C040] mt-0.5" />
-                <span>Hà Nội, Việt Nam</span>
+                <span>cuong@ongbut.vn</span>
+              </a>
+              <div className="flex items-start gap-2 text-sm text-blue-200">
+                <MapPin className="w-4 h-4 text-[#F0C040] mt-0.5 flex-shrink-0" />
+                <span>
+                  {t(
+                    "SH1 tòa B, Hà Nội Paragon, ngõ 86 Duy Tân, Cầu Giấy, Hà Nội",
+                    "SH1 Block B, Hanoi Paragon, No. 86 Duy Tan Alley, Cau Giay, Hanoi"
+                  )}
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Courses */}
+          {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-base mb-4 text-[#F0C040]">
-              Khóa học
+              {t("Liên kết nhanh", "Quick Links")}
             </h3>
             <ul className="space-y-2">
-              {LINKS.courses.map((link) => (
-                <li key={link.label}>
+              {quickLinks.map((link) => (
+                <li key={link.href + link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-blue-100 hover:text-white transition-colors"
+                    className="text-sm text-blue-200 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -74,20 +109,23 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Info */}
+          {/* Zalo Groups */}
           <div>
             <h3 className="font-semibold text-base mb-4 text-[#F0C040]">
-              Thông tin
+              {t("Nhóm Zalo lớp học", "Class Zalo Groups")}
             </h3>
             <ul className="space-y-2">
-              {LINKS.info.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-blue-100 hover:text-white transition-colors"
+              {ZALO_GROUPS.map((g) => (
+                <li key={g.label}>
+                  <a
+                    href={g.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-200 hover:text-white transition-colors flex items-center gap-1"
                   >
-                    {link.label}
-                  </Link>
+                    <MessageCircle className="w-3 h-3 text-[#F0C040]" />
+                    {g.label}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -96,23 +134,31 @@ export function Footer() {
           {/* Legal */}
           <div>
             <h3 className="font-semibold text-base mb-4 text-[#F0C040]">
-              Pháp lý
+              {t("Pháp lý", "Legal")}
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/chinh-sach-bao-mat"
-                  className="text-sm text-blue-100 hover:text-white transition-colors"
+                  className="text-sm text-blue-200 hover:text-white transition-colors"
                 >
-                  Chính sách bảo mật
+                  {t("Chính sách bảo mật", "Privacy Policy")}
                 </Link>
               </li>
               <li>
                 <Link
                   href="/lien-he"
-                  className="text-sm text-blue-100 hover:text-white transition-colors"
+                  className="text-sm text-blue-200 hover:text-white transition-colors"
                 >
-                  Điều khoản sử dụng
+                  {t("Điều khoản sử dụng", "Terms of Service")}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/gioi-thieu"
+                  className="text-sm text-blue-200 hover:text-white transition-colors"
+                >
+                  {t("Về chúng tôi", "About Us")}
                 </Link>
               </li>
             </ul>
@@ -123,22 +169,24 @@ export function Footer() {
         <div className="mt-8 mb-4 flex items-center justify-center gap-2 py-2 px-4 bg-white/10 rounded-xl border border-white/20 w-fit mx-auto">
           <Trophy className="w-4 h-4 text-[#F0C040] flex-shrink-0" />
           <span className="text-xs text-white font-medium">
-            TOP 10 Doanh nghiệp Công nghệ Số Việt Nam 2025 · VINASA · Hạng mục Giáo Dục &amp; Đào Tạo
+            {t(
+              "TOP 10 Doanh nghiệp Công nghệ Số Việt Nam 2025 · VINASA · Hạng mục Giáo Dục & Đào Tạo",
+              "TOP 10 Vietnam Digital Technology Enterprises 2025 · VINASA · Education & Training Category"
+            )}
           </span>
         </div>
 
         <div className="mt-4 pt-6 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-blue-100">
-            © {new Date().getFullYear()} Ông Bụt AI Education. Bảo lưu mọi
-            quyền.
+          <p className="text-sm text-blue-200">
+            © {new Date().getFullYear()} {t("Ông Bụt AI. Thuộc ITSOL Group.", "Ông Bụt AI. Part of ITSOL Group.")}
           </p>
-          <p className="text-sm text-blue-100">
-            Website:{" "}
+          <p className="text-sm text-blue-200">
+            {t("Website", "Website")}:{" "}
             <a
-              href="https://ongbut.edu.vn"
+              href="https://ongbut.vn"
               className="text-[#F0C040] hover:text-yellow-300"
             >
-              ongbut.edu.vn
+              ongbut.vn
             </a>
           </p>
         </div>

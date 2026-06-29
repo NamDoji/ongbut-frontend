@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/home/HeroSection";
 import { AwardsSection } from "@/components/home/AwardsSection";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { TeacherStory } from "@/components/home/TeacherStory";
 import { FeaturedSubjects } from "@/components/home/FeaturedSubjects";
 import { EnrollmentBanner } from "@/components/home/EnrollmentBanner";
 import { TeacherPreview } from "@/components/home/TeacherPreview";
@@ -13,6 +14,7 @@ export default function HomePage() {
       <HeroSection />
       <AwardsSection />
       <WhyChooseUs />
+      <TeacherStory />
       <FeaturedSubjects />
       <EnrollmentBanner />
       <TeacherPreview />
