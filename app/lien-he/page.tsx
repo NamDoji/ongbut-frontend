@@ -25,10 +25,10 @@ const consultSchema = z.object({
     .string()
     .min(9, { message: "Số điện thoại không hợp lệ / Invalid phone number" })
     .max(12, { message: "Số điện thoại không hợp lệ / Invalid phone number" }),
-  email: z
-    .string()
-    .email({ message: "Email không hợp lệ / Invalid email" })
-    .or(z.literal("")),
+  email: z.union([
+    z.string().email({ message: "Email không hợp lệ / Invalid email" }),
+    z.literal(""),
+  ]),
   course: z.string().optional(),
   message: z.string().optional(),
 });
