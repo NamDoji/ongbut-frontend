@@ -1,11 +1,27 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { HomeContent } from "@/components/home/HomeContent";
+import { AwardsSection } from "@/components/home/AwardsSection";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { TeacherStory } from "@/components/home/TeacherStory";
+import { LaunchGallery } from "@/components/home/LaunchGallery";
+import { FeaturedSubjects } from "@/components/home/FeaturedSubjects";
+import { EnrollmentBanner } from "@/components/home/EnrollmentBanner";
+import { TeacherPreview } from "@/components/home/TeacherPreview";
+import { NewsPreview } from "@/components/home/NewsPreview";
+import { ConsultForm } from "@/components/home/ConsultForm";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <HomeContent />
+      <AwardsSection />
+      <WhyChooseUs />
+      <TeacherStory />
+      <LaunchGallery />
+      <FeaturedSubjects />
+      <EnrollmentBanner />
+      <TeacherPreview />
+      <NewsPreview />
+      <ConsultForm />
     </>
   );
 }
