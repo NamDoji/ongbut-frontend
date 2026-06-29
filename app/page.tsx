@@ -7,6 +7,7 @@ import { EnrollmentBanner } from "@/components/home/EnrollmentBanner";
 import { TeacherPreview } from "@/components/home/TeacherPreview";
 import { NewsPreview } from "@/components/home/NewsPreview";
 import { ConsultForm } from "@/components/home/ConsultForm";
+import { LaunchGallery } from "@/components/home/LaunchGallery";
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <AwardsSection />
       <WhyChooseUs />
       <TeacherStory />
+      <LaunchGallery />
       <FeaturedSubjects />
       <EnrollmentBanner />
       <TeacherPreview />
