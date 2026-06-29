@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { TeacherCard } from "./TeacherCard";
 import { SkeletonTeacherCard } from "@/components/common/SkeletonCard";
@@ -37,14 +36,11 @@ export function TeacherGrid() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {teachers.map((teacher, i) => (
-        <motion.div
+        <div
           key={teacher.username}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 0.08, duration: 0.5 }}
         >
           <TeacherCard teacher={teacher} />
-        </motion.div>
+        </div>
       ))}
     </div>
   );

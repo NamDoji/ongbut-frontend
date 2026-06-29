@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight } from "lucide-react";
 import { SectionTitle } from "@/components/common/SectionTitle";
@@ -32,15 +31,11 @@ export function NewsPreview() {
                 <SkeletonCard key={i} />
               ))
             : news.map((article, i) => (
-                <motion.div
+                <div
                   key={article.blogId}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.12, duration: 0.5 }}
                 >
                   <NewsCard article={article} />
-                </motion.div>
+                </div>
               ))}
         </div>
 

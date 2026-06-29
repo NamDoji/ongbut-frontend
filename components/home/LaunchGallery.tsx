@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useLang } from "@/contexts/LanguageContext";
 import { ExternalLink } from "lucide-react";
@@ -51,11 +50,7 @@ export function LaunchGallery() {
     <section className="py-20 px-4 bg-[#0A2342]">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-14"
         >
           <span className="inline-block bg-[#D4A017]/20 text-[#D4A017] text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">
@@ -70,18 +65,14 @@ export function LaunchGallery() {
               "Official launch press conference for Ông Bụt EdTech platform at Novotel Hanoi, December 21, 2022"
             )}
           </p>
-        </motion.div>
+        </div>
 
         {/* Grid gallery */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {PHOTOS.map((photo, i) => (
-            <motion.div
+            <div
               key={i}
               className={`${photo.span} relative group overflow-hidden rounded-2xl`}
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.5 }}
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
                 <Image
@@ -99,16 +90,12 @@ export function LaunchGallery() {
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Milestone badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.5 }}
+        <div
           className="mt-10 flex flex-wrap justify-center gap-4"
         >
           {[
@@ -121,7 +108,7 @@ export function LaunchGallery() {
               {t(badge.vi, badge.en)}
             </span>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

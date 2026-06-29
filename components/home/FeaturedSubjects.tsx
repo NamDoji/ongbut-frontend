@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { SectionTitle } from "@/components/common/SectionTitle";
@@ -47,13 +46,8 @@ export function FeaturedSubjects() {
                 />
               ))
             : subjects.map((subject, i) => (
-                <motion.div
+                <div
                   key={subject.folderId}
-                  custom={i}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={cardVariants}
                 >
                   <Link
                     href="/khoa-hoc"
@@ -71,7 +65,7 @@ export function FeaturedSubjects() {
                       {subject.countLesson} bài học
                     </p>
                   </Link>
-                </motion.div>
+                </div>
               ))}
         </div>
 

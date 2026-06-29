@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, MessageCircle } from "lucide-react";
 import { useLang } from "@/contexts/LanguageContext";
 import { Input } from "@/components/ui/input";
@@ -138,7 +137,7 @@ export default function ContactPage() {
           <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#2B4FFF]/20 blur-3xl" />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+          <div>
             <span className="inline-block px-4 py-1.5 text-xs font-semibold text-[#F0C040] bg-white/10 rounded-full mb-4 uppercase tracking-wide border border-white/20">
               {t("Liên hệ", "Contact")}
             </span>
@@ -151,7 +150,7 @@ export default function ContactPage() {
                 "Our team of experts is ready to advise and support you. Contact us now for a free consultation."
               )}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -160,12 +159,8 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {CONTACT_INFO.map((info, i) => (
-              <motion.div
+              <div
                 key={info.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08, ease: [0.4, 0, 0.2, 1] }}
                 className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#EEF1FF] flex items-center justify-center mx-auto mb-3">
@@ -185,7 +180,7 @@ export default function ContactPage() {
                   <p className="font-semibold text-[#2B4FFF] text-xs">{info.value}</p>
                 )}
                 <p className="text-xs text-[#6B7280] mt-0.5 leading-tight">{info.sub}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -196,11 +191,7 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Map */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            <div
             >
               <h2 className="text-xl font-bold text-[#0A2342] mb-4">
                 {t("Địa chỉ văn phòng", "Office Address")}
@@ -236,14 +227,10 @@ export default function ContactPage() {
                   title="Ông Bụt AI - Office Location"
                 />
               </div>
-            </motion.div>
+            </div>
 
             {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
+            <div
             >
               <h2 className="text-xl font-bold text-[#0A2342] mb-4">
                 {t("Đăng ký tư vấn miễn phí", "Register for Free Consultation")}
@@ -392,7 +379,7 @@ export default function ContactPage() {
                   </a>
                 </p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

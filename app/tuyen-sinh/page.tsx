@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Calendar, Clock, Users, ExternalLink, Phone, MessageCircle, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -81,7 +80,7 @@ export default function TuyenSinhPage() {
         <div className="absolute inset-0 opacity-10"
           style={{ backgroundImage: "radial-gradient(circle at 20% 50%, #D4A017 0%, transparent 50%), radial-gradient(circle at 80% 20%, #60a5fa 0%, transparent 40%)" }} />
         <div className="relative max-w-4xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <div>
             <span className="inline-block bg-[#D4A017] text-[#0A2342] text-sm font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
               🎓 Tuyển sinh năm học 2024 – 2025
             </span>
@@ -112,16 +111,13 @@ export default function TuyenSinhPage() {
                 0904 290 583
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── Poster ── */}
       <section className="max-w-2xl mx-auto px-4 -mt-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <div
           className="rounded-2xl overflow-hidden shadow-2xl"
         >
           <Image
@@ -132,23 +128,23 @@ export default function TuyenSinhPage() {
             className="w-full h-auto object-cover"
             priority
           />
-        </motion.div>
+        </div>
       </section>
 
       {/* ── Benefits ── */}
       <section className="max-w-5xl mx-auto px-4 py-16">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+        <div
           className="text-center mb-10">
           <h2 className="text-3xl font-extrabold text-[#0A2342] mb-3">Sau mỗi buổi học</h2>
           <p className="text-gray-600">Tất cả được số hóa trên website Ông Bụt AI</p>
-        </motion.div>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {BENEFITS.map((b, i) => (
-            <motion.div key={i} custom={i} variants={fadeUp} initial="hidden" animate="show"
+            <div key={i}
               className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm border border-gray-100">
               <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
               <span className="text-gray-700 font-medium">{b}</span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -163,8 +159,7 @@ export default function TuyenSinhPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {CLASSES.map((cls, i) => (
-              <motion.div key={cls.cohort} custom={i} variants={fadeUp} initial="hidden" whileInView="show"
-                viewport={{ once: true }}
+              <div key={cls.cohort}
                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
               >
                 {/* Header */}
@@ -207,7 +202,7 @@ export default function TuyenSinhPage() {
                     Vào nhóm Zalo {cls.cohort}
                   </a>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -216,8 +211,7 @@ export default function TuyenSinhPage() {
       {/* ── Registration CTA ── */}
       <section className="py-16 px-4 bg-gradient-to-br from-[#D4A017] to-[#F0C040]">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          <div>
             <h2 className="text-3xl font-extrabold text-[#0A2342] mb-3">
               Sẵn sàng đồng hành cùng Thầy Cường?
             </h2>
@@ -242,7 +236,7 @@ export default function TuyenSinhPage() {
                 Zalo: 0904 290 583
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Brain, Bot, Video, Trophy, Users, Globe } from "lucide-react";
 import { SectionTitle } from "@/components/common/SectionTitle";
 import { useLang } from "@/contexts/LanguageContext";
@@ -88,13 +87,8 @@ export function WhyChooseUs() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURES.map((feat, i) => (
-            <motion.div
+            <div
               key={feat.titleVi}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={cardVariants}
               className="bg-white rounded-2xl p-6 brand-shadow hover:brand-shadow-lg transition-shadow group"
             >
               <div
@@ -109,7 +103,7 @@ export function WhyChooseUs() {
               <p className="text-sm text-[#6B7280] leading-relaxed">
                 {lang === "vi" ? feat.descVi : feat.descEn}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

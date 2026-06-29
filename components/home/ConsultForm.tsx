@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { motion } from "framer-motion";
 import { CheckCircle, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -47,11 +46,7 @@ export function ConsultForm() {
         }}
       />
       <div className="relative max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
           className="text-center mb-8"
         >
           <span className="inline-block px-3 py-1 text-xs font-semibold text-[#F0C040] bg-white/10 rounded-full mb-3 uppercase tracking-wide border border-white/20">
@@ -64,13 +59,9 @@ export function ConsultForm() {
             Để lại thông tin, chuyên gia của chúng tôi sẽ liên hệ trong vòng
             24 giờ.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+        <div
           className="bg-white rounded-2xl p-6 sm:p-8 brand-shadow-lg"
         >
           {submitted ? (
@@ -173,7 +164,7 @@ export function ConsultForm() {
               </Button>
             </form>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { Trophy, Medal } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -79,11 +78,8 @@ export function RankingClient() {
       ) : (
         <div className="space-y-3">
           {items.map((item, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: i * 0.06, duration: 0.4 }}
               className={cn(
                 "bg-white rounded-xl p-4 brand-shadow flex items-center gap-4",
                 i < 3 && "border-l-4",
@@ -114,7 +110,7 @@ export function RankingClient() {
                   <p className="text-xs text-[#6B7280]">điểm</p>
                 </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       )}

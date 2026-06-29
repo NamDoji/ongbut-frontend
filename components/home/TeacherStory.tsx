@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { useLang } from "@/contexts/LanguageContext";
 
 const fadeUp = {
@@ -52,11 +51,7 @@ export function TeacherStory() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={fadeUp}
+        <div
           className="text-center mb-12"
         >
           <span className="inline-block px-3 py-1 text-xs font-semibold text-[#D4A017] bg-[#D4A017]/10 rounded-full mb-3 uppercase tracking-wide border border-[#D4A017]/30">
@@ -74,16 +69,12 @@ export function TeacherStory() {
               "A 20+ year journey of shaping outstanding generations of students"
             )}
           </p>
-        </motion.div>
+        </div>
 
         {/* Main content: 2 columns on desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left: Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+          <div
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] max-w-sm mx-auto lg:max-w-full">
@@ -112,14 +103,10 @@ export function TeacherStory() {
               <p className="text-sm font-bold text-[#2B4FFF]">TOP 10 VINASA 2025</p>
               <p className="text-xs text-[#6B7280]">{t("Hạng mục Giáo dục & ĐT", "Education & Training")}</p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
+          <div
             className="space-y-6"
           >
             {/* Quote */}
@@ -138,16 +125,12 @@ export function TeacherStory() {
             {/* Bio points */}
             <div className="space-y-4">
               {bio.map((point, i) => (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 * i, ease: [0.4, 0, 0.2, 1] }}
                   className="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm border border-gray-100"
                 >
                   <p className="text-sm text-[#374151] leading-relaxed">{point}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -181,7 +164,7 @@ export function TeacherStory() {
                 {t("Đặt lịch tư vấn", "Book a Consultation")}
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

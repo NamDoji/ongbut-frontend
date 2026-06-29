@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Trophy, Award } from "lucide-react";
 import { SectionTitle } from "@/components/common/SectionTitle";
 
@@ -29,12 +28,8 @@ export function AwardsSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {AWARDS.map((award, i) => (
-            <motion.div
+            <div
               key={award.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.6 }}
               className="bg-white rounded-2xl overflow-hidden brand-shadow-lg border border-[#EEF1FF]"
             >
               {/* Main ceremony image */}
@@ -79,15 +74,11 @@ export function AwardsSection() {
                   <p className="text-xs text-[#6B7280]">{award.date}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
 
           {/* Side: ceremony photo 2 + text */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
+          <div
             className="space-y-5"
           >
             {/* Second ceremony image */}
@@ -130,7 +121,7 @@ export function AwardsSection() {
               ngừng đổi mới, ứng dụng AI vào giáo dục và mang lại giá trị thực
               cho hàng nghìn học sinh Việt Nam.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Trophy, Target, Heart, Lightbulb, GraduationCap } from "lucide-react";
 import { useLang } from "@/contexts/LanguageContext";
 
@@ -119,10 +118,7 @@ export default function AboutPage() {
           <div className="absolute bottom-0 left-1/4 w-72 h-72 rounded-full bg-[#D4A017]/10 blur-3xl" />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
+          <div
           >
             <span className="inline-block px-4 py-1.5 text-xs font-semibold text-[#F0C040] bg-white/10 rounded-full mb-4 uppercase tracking-wide border border-white/20">
               {t("Về chúng tôi", "About Us")}
@@ -136,18 +132,14 @@ export default function AboutPage() {
                 "Our story, mission, and the values we bring to the next generation of Vietnamese learners."
               )}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Mission Section */}
       <section className="py-12 lg:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
+          <div
             className="bg-gradient-to-r from-[#EEF1FF] to-[#FFFBEB] rounded-2xl p-8 border border-[#2B4FFF]/10"
           >
             <div className="flex items-center gap-3 mb-4">
@@ -164,7 +156,7 @@ export default function AboutPage() {
                 "Unlocking every student's potential through AI-powered, personalized education."
               )}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -176,11 +168,7 @@ export default function AboutPage() {
         }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
+          <div
             className="text-center mb-12"
           >
             <span className="inline-block px-3 py-1 text-xs font-semibold text-[#D4A017] bg-[#D4A017]/10 rounded-full mb-3 uppercase tracking-wide border border-[#D4A017]/30">
@@ -192,15 +180,11 @@ export default function AboutPage() {
                 "The Educator Behind Ông Bụt AI"
               )}
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+            <div
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] max-w-sm mx-auto lg:max-w-full">
                 <Image
@@ -224,14 +208,10 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.15, ease: [0.4, 0, 0.2, 1] }}
+            <div
               className="space-y-6"
             >
               <blockquote className="border-l-4 border-[#D4A017] pl-5 py-2">
@@ -275,7 +255,7 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -289,11 +269,7 @@ export default function AboutPage() {
           <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#D4A017]/10 blur-3xl" />
         </div>
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
+          <div
             className="text-center mb-10"
           >
             <div className="inline-flex items-center gap-3 bg-[#D4A017]/20 border border-[#D4A017]/40 rounded-full px-6 py-2 mb-6">
@@ -312,7 +288,7 @@ export default function AboutPage() {
                 "Ông Bụt AI was honored by VINASA in the Education & Training category, affirming our pioneering role in applying AI to Vietnamese education."
               )}
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
@@ -320,12 +296,8 @@ export default function AboutPage() {
               "/awards/vinasa-ceremony-1.jpg",
               "/awards/vinasa-ceremony-2.jpg",
             ].map((src, i) => (
-              <motion.div
+              <div
                 key={src}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
                 className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10"
               >
                 <Image
@@ -335,7 +307,7 @@ export default function AboutPage() {
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, 33vw"
                 />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -344,11 +316,7 @@ export default function AboutPage() {
       {/* Advisors Section */}
       <section className="py-12 lg:py-16 bg-[#F8F9FC]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
+          <div
             className="text-center mb-10"
           >
             <span className="inline-block px-3 py-1 text-xs font-semibold text-[#2B4FFF] bg-[#EEF1FF] rounded-full mb-3 uppercase tracking-wide">
@@ -357,16 +325,12 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-[#0A2342]">
               {t("Đội ngũ cố vấn", "Our Advisors")}
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {ADVISORS.map((advisor, i) => (
-              <motion.div
+              <div
                 key={advisor.nameVi}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
                 className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100"
               >
                 <div className="text-4xl mb-3">{advisor.emoji}</div>
@@ -376,7 +340,7 @@ export default function AboutPage() {
                 <p className="text-xs text-[#6B7280] leading-relaxed">
                   {lang === "vi" ? advisor.roleVi : advisor.roleEn}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -385,26 +349,18 @@ export default function AboutPage() {
       {/* Core Values */}
       <section className="py-12 lg:py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
+          <div
             className="text-center mb-10"
           >
             <h2 className="text-3xl font-bold text-[#0A2342]">
               {t("Giá trị cốt lõi", "Core Values")}
             </h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {values.map((val, i) => (
-              <motion.div
+              <div
                 key={val.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.4, 0, 0.2, 1] }}
                 className="bg-[#F8F9FC] rounded-2xl p-6 border border-gray-100"
               >
                 <div className="w-10 h-10 rounded-xl bg-[#EEF1FF] flex items-center justify-center mb-4">
@@ -412,7 +368,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-bold text-[#2B4FFF] text-base mb-2">{val.title}</h3>
                 <p className="text-sm text-[#6B7280] leading-relaxed">{val.content}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
